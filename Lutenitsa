@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lutenitsa
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double kgTomatos = double.Parse(Console.ReadLine());
+            int boxes = int.Parse(Console.ReadLine());
+            int jars = int.Parse(Console.ReadLine());
+
+            double kgLiutenitsa = kgTomatos / 5;
+            double quantityJars = kgLiutenitsa / 0.535;
+            double quantityBoxes = quantityJars / jars;
+
+            Console.WriteLine($"Total lutenica: {kgLiutenitsa:f0} kilograms.");
+            
+            if (quantityBoxes > boxes)
+            {
+                double extra = Math.Floor(quantityBoxes - boxes);
+                Console.WriteLine($"{extra} boxes left.");
+                double extraJars = Math.Floor(quantityJars - (jars * boxes));
+                Console.WriteLine($"{extraJars} jars left.");
+            }
+            else
+            {
+                double extra = Math.Floor(boxes - quantityBoxes);
+                Console.WriteLine($"{extra} more boxes needed.");
+                double extraJars = Math.Floor((jars * boxes) - quantityJars);
+                Console.WriteLine($"{extraJars} more jars needed.");
+            }
+
+        }
+    }
+}
