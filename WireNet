@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace WireNet
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a = int.Parse(Console.ReadLine());
+            int b = int.Parse(Console.ReadLine());
+            double high = double.Parse(Console.ReadLine());
+            double price = double.Parse(Console.ReadLine());
+            double weight = double.Parse(Console.ReadLine());
+
+            double lenght = 2 * a + 2 * b;
+            double totalPrice = lenght * price;
+            double area = lenght * high;
+            double totalWeight = area * weight;
+
+            Console.WriteLine(lenght);
+            Console.WriteLine($"{totalPrice:f2}");            
+            Console.WriteLine($"{totalWeight:f3}");
+        }
+    }
+}
