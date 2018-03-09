@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Java
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+
+            if (n >= 3 && n <= 27)
+            {
+                int width = 3 * n + 6;
+                
+                for (int i = 0; i < n; i++)
+                {
+                    Console.Write("{0}", new string(' ', n));
+                    for (int j = 0; j < 2; j++)
+                    {
+                        Console.Write("~ ");
+                    }
+                    Console.WriteLine("~");
+                }
+
+                Console.WriteLine($"{new string('=', width - 1)}");
+
+                for (int i = 1; i <= n - 2; i++)
+                {
+
+                    if (i == n/2)
+                    {
+                        Console.WriteLine($"|{new string('~',n)}JAVA{new string('~', n)}|{new string(' ', n-1)}|");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"|{new string('~', 2*n+4)}|{new string(' ', n - 1)}|");
+                    } 
+                }
+            
+                Console.WriteLine($"{new string('=', width - 1)}");
+
+                int at = 2 * n + 4;
+                for (int i = 0; i < n; i++)
+                {
+                    Console.WriteLine($"{new string(' ', i)}\\{new string('@', at)}/");
+                    at -= 2;
+                }
+                Console.WriteLine($"{new string('=', 2 * n + 6)}");
+
+
+            }
+
+        }
+    }
+}
