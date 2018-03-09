@@ -1,0 +1,60 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ExternalEvaluation
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+
+            double p2 = 0;
+            double p3 = 0;
+            double p4 = 0;
+            double p5 = 0;
+            double p6 = 0;
+
+            for (int i = 0; i < n; i++)
+            {
+
+                double tochki = double.Parse(Console.ReadLine());
+
+                if (tochki >= 0 && tochki <= 22.5)
+                {
+                    p2++;
+                }
+                else if (tochki > 22.5 && tochki <= 40.5)
+                {
+                    p3++;
+                }
+                else if (tochki > 40.5 && tochki <= 58.5)
+                {
+                    p4++;
+                }
+                else if (tochki > 58.5 && tochki <= 76.5)
+                {
+                    p5++;
+                }
+
+                else if (tochki > 76.5 && tochki <= 100)
+                {
+                    p6++;
+                }
+            }
+            double slab = (p2 / n) * 100.0;
+            double sreden = (p3 / n) * 100.0;
+            double dobur = (p4 / n) * 100.0;
+            double mndobur = (p5 / n) * 100.0;
+            double otlichen = (p6 / n) * 100.0;
+            Console.WriteLine("{0:f2}% poor marks", slab);
+            Console.WriteLine("{0:f2}% satisfactory marks", sreden);
+            Console.WriteLine("{0:f2}% good marks", dobur);
+            Console.WriteLine("{0:f2}% very good marks", mndobur);
+            Console.WriteLine("{0:f2}% excellent marks", otlichen);
+        }
+    }
+}
