@@ -1,0 +1,100 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CourierExpress
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double deliveryKg = double.Parse(Console.ReadLine());
+            string type = Console.ReadLine();
+            int distance = int.Parse(Console.ReadLine());
+
+            double price = 0;
+            double nadcenka = 1;
+            if (deliveryKg < 1)
+            {
+                if (type == "standard")
+                {
+                    price = 0.03;
+                }
+                else if (type == "express")
+                {
+                    price = 0.03;
+                    nadcenka = 0.8;
+                }
+
+            }
+            else if (deliveryKg >= 1 && deliveryKg <= 10)
+            {
+                if (type == "standard")
+                {
+                    price = 0.05;
+                }
+                else if (type == "express")
+                {
+                    price = 0.05;
+                    nadcenka = 0.4;
+                }
+            }
+
+            else if (deliveryKg > 10 && deliveryKg <= 40)
+            {
+                if (type == "standard")
+                {
+                    price = 0.10;
+                }
+                else if (type == "express")
+                {
+                    price = 0.10;
+                    nadcenka = 0.05;
+                }
+            }
+            else if (deliveryKg > 41 && deliveryKg <= 90)
+            {
+                if (type == "standard")
+                {
+                    price = 0.15;
+                }
+                else if (type == "express")
+                {
+                    price = 0.15;
+                    nadcenka = 0.02;
+                }
+            }
+            else if (deliveryKg > 90 && deliveryKg < 150)
+            {
+                if (type == "standard")
+                {
+                    price = 0.20;
+                }
+                else if (type == "express")
+                {
+                    price = 0.20;
+                    nadcenka = 0.01;
+                }
+            }
+
+
+            if (type == "standard")
+            {
+                double totalPrice = price * distance;
+
+                Console.WriteLine($"The delivery of your shipment with weight of {deliveryKg:f3} kg. would cost {totalPrice:f2} lv.");
+
+            }
+            else
+            {
+                double totalPrice = (price * nadcenka * distance * deliveryKg) + (price * distance);
+
+                Console.WriteLine($"The delivery of your shipment with weight of {deliveryKg:f3} kg. would cost {totalPrice:f2} lv.");
+
+            }
+
+        }
+    }
+}
